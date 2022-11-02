@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/vue@3"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <title>Hello Vue</title>
+</head>
+<body>
+  <div id="app">
+    <h1 class="underline">{{question}}</h1>
+    <button @click="isButtonClicked()">Scopri la risposta</button>
+    <button @click="myClassViolet='orange'" v-show="isTextClicked">Cambia il colore in arancio</button>
+    <p v-show="isTextClicked" :class="myClassViolet">{{answer}}</p><br>
+    <button @click="showImg()" :disabled="isImageClicked">Scopri le immagini</button>
+    <button @click="newImg('nadi.jpeg')" v-show="isImageClicked">Cambia immagine</button>
+    <button @click="ImgToText()" v-show="isImageClicked">Passa alla descrizione testuale</button>
+    <img :src="source + imageName" v-show="isImageClicked">
+    <p>{{ImgDescription}}</p>
+  </div>
+  
+  <script src="js/script.js"></script>
+</body>
+</html>
