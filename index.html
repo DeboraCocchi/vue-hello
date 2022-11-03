@@ -10,15 +10,19 @@
 </head>
 <body>
   <div id="app">
-    <h1 class="underline">{{question}}</h1>
+    <h1 :class="myClassYellow" class="underline">{{question}}</h1>
     <button @click="isButtonClicked()">Scopri la risposta</button>
-    <button @click="myClassViolet='orange'" v-show="isTextClicked">Cambia il colore in arancio</button>
-    <p v-show="isTextClicked" :class="myClassViolet">{{answer}}</p><br>
+    <button v-show="isTextClicked" @click="getRdmColor(), myClassYellow='orange'">Cambia il colore del testo</button>
+    <div class="answ-container" v-show="isTextClicked">
+      <p v-show="isTextClicked" id="answer" :style="getRdmColor()">{{answer}}</p>
+    </div>
     <button @click="showImg()" :disabled="isImageClicked">Scopri le immagini</button>
     <button @click="newImg('nadi.jpeg')" v-show="isImageClicked">Cambia immagine</button>
     <button @click="ImgToText()" v-show="isImageClicked">Passa alla descrizione testuale</button>
     <img :src="source + imageName" v-show="isImageClicked">
-    <p>{{ImgDescription}}</p>
+    <div class="answ-container" v-show="ImgDescription">
+      <p>{{ImgDescription}}</p>
+    </div>
   </div>
   
   <script src="js/script.js"></script>

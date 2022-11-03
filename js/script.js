@@ -14,12 +14,13 @@ createApp({
       question: 'Cosa sono i Chakra?',
       answer: 'I Chakra (letteralmente "ruota") sono i centri energetici principali in cui scorre l\'energia vitale, il prana.',
       myClassUnderlined: '',
-      myClassViolet:'yellow',
+      myClassYellow:'yellow',
       isTextClicked: false,
       isImageClicked: false,
       source:'img/',
       imageName:'pradipika.jpeg',
-      ImgDescription:''
+      ImgDescription:'',
+      rdmColor: ''
     }
   },
   methods: {
@@ -42,6 +43,13 @@ createApp({
       if(this.imageName ==='pradipika.jpeg'){
         this.ImgDescription = 'Illustrazione dei Chakra Principali secondo l\'antico testo dell\'Hatha Yoga Pradipika';
       }else{this.ImgDescription = 'Schematizzazione del circolo del prana lungo i canali principali (nadi) e attraverso i chakra'}
+    },
+    getRdmColor(){
+      this.rdmColor= Math.floor(Math.random()*16777215).toString(16);
+      this.answer.colorText='#'+this.rdmColor;
+      this.ImgDescription.colorText='#'+this.rdmColor;
+      return 'color:#'+this.rdmColor+';'
+    }
     }
   }
-}).mount('#app')
+).mount('#app')
